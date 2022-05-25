@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsivo</title>
+    <style>
+        /* Para teléfonos móviles: */
+        [class*="col-"] {
+            width: 100%;
+        }
+        @media only screen and (min-width: 600px) {
+            /* Para tabletas: */
+            .col-s-1 {width: 8.33%;}
+            .col-s-2 {width: 16.66%;}
+            .col-s-3 {width: 25%;}
+            .col-s-4 {width: 33.33%;}
+            .col-s-5 {width: 41.66%;}
+            .col-s-6 {width: 50%;}
+            .col-s-7 {width: 58.33%;}
+            .col-s-8 {width: 66.66%;}
+            .col-s-9 {width: 75%;}
+            .col-s-10 {width: 83.33%;}
+            .col-s-11 {width: 91.66%;}
+            .col-s-12 {width: 100%;}
+        }
+        @media only screen and (min-width: 768px) {
+            /* Para equipos de escritorio: */
+            .col-1 {width: 8.33%;}
+            .col-2 {width: 16.66%;}
+            .col-3 {width: 25%;}
+            .col-4 {width: 33.33%;}
+            .col-5 {width: 41.66%;}
+            .col-6 {width: 50%;}
+            .col-7 {width: 58.33%;}
+            .col-8 {width: 66.66%;}
+            .col-9 {width: 75%;}
+            .col-10 {width: 83.33%;}
+            .col-11 {width: 91.66%;}
+            .col-12 {width: 100%;}
+        }
+/*@media only screen and (orientation: landscape) {
+body {
+background-color: lightblue;
+}
+} */
+h1 {
+    font-size:10vw;
+}
+.left, .right {
+float: left;
+width: 20%; /* El ancho de 20%, por defecto */
+background-color: black;
+width: 100px; 
+     height: 100px; 
+     background: #428bca;
+}
+.main {
+float: left;
+width: 60%; /* El ancho es 60%, por defecto */
+background-color: blueviolet;
+width: 100px; 
+     height: 100px; 
+     background: #ca8f42;
+}
+/* Use un “media query” para agregar un punto de quiebre a los
+800px de ancho de la ventana: */
+@media screen and (max-width: 800px){ 
+.left, .main, .right {
+width: 100%; /* El ancho es 100%, cuando el contenedor es de
+800px o menor. */
+}
+}
+/*
+}
+.col-s-3 {
+    background-color: rgb(0, 225, 255);
+}
+.col-3 {
+    background-color: blue;
+}
+
+.col-s-9 {
+    background-color: rgb(255, 0, 0);
+}
+.col-6 {
+    background-color: rgb(0, 255, 13);
+}
+.col-s-12 {
+    background-color: rgb(238, 255, 0);
+}*/
+    </style>
+</head>
+<body>
+    <div class="left"> 
+                   
+    </div>
+    <div class="right">
+                    
+    </div>
+    <div class="main">
+                   
+    </div>
+</body>
+</html>
