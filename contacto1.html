@@ -9,17 +9,17 @@
     <style>
         body {
           margin: 0;
-          margin-bottom: 40px;
+          margin-bottom: 10px;
         }
-        footer {
-          background-color: black;
-          color: white;
-          position: absolute;
+        #main-footer {
+            position: absolute;
             bottom: 0;
             width: 100%;
             height: 40px;
         }
-    </style>
+        
+      </style>
+
 
     <title>Formulario de contacto</title>
 </head>
@@ -55,8 +55,14 @@
         </div>
     </div>
     
-    <footer id="pie">
-        <p>Marilyn Aguilar &nbsp;  &nbsp; &nbsp;  Juan Mansilla &nbsp; &nbsp; &nbsp;   Marcos Sobarzo &nbsp; &nbsp;  &copy; Todos los derechos reservados <time datetime="2022">2022</time></p>
-    </footer>
+    <footer id="main-footer" class="bg-dark text-white mt-5p-3">
+        <div class="container">
+        <div class="col">
+            <p class="lead text-center">
+              <p>Marilyn Aguilar &nbsp;  &nbsp; &nbsp;  Juan Mansilla &nbsp; &nbsp; &nbsp;   Marcos Sobarzo &nbsp; &nbsp;  &copy; Todos los derechos reservados <time datetime="2022">2022</time></p>
+            </p>
+        </div>
+    </div>
+  </footer>
 </body>
 </html>
