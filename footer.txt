@@ -1,0 +1,11 @@
+
+<!--Footer-->
+<footer id="main-footer" class="bg-darl text-white mt-5p-3">
+    <div class="container">
+        <div class="col">
+            <p class="lead text-center">
+                2022 - Todos los derechos & copy; <span>App Commerce</span>
+            </p>
+        </div>
+    </div>
+</footer>
