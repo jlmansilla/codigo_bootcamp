@@ -36,14 +36,14 @@
             <div class="col-md-9 offset-md-3" style="border:0px; background: #fafafa;">
                 <section>
                     <form action="mailto:ventas@telovendo.com" method="post" enctype="text/plain">
-                        Nombre:<br>
-                        <input type="text" name="name"><br>
-                        E-mail:<br>
-                        <input type="text" name="mail"><br>
-                        Mensaje:<br>
-                        <textarea name="mensaje" cols="50"></textarea><br><br>
-                        <button type="submit">Enviar          </button>
-                        <button type="reset">Limpiar          </button>
+                        <label for="name">Ingrese su nombre</label>
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Nombre"><br>
+                        <label for="email">Ingrese su E-mail</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="E-mail"><br>
+                        <label for="mensaje">Ingrese su mensaje</label>
+                        <textarea name="mensaje" cols="50" id="mensaje" class="form-control" placeholder="Mensaje"></textarea><br><br>
+                        <button type="submit" class="btn btn-success">Enviar          </button>
+                        <button type="reset" class="btn btn-secondary">Limpiar          </button>
                     </form>
                 </section>
             </div>
