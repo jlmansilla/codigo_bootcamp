@@ -1,0 +1,35 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+          margin: 0;
+          margin-bottom: 10px;
+              
+        
+     
+}
+.navegacionPropia{
+    background-color: blue;
+}
+
+.nav-link{
+    color: white;
+}
+/*.nav-link:hover{
+   color: blue;
+}*/
+
+#main-footer{
+   background-color: black;
+   color:beige;
+   padding: 5px;
+   text-align: center;
+}
+
+#reseña{
+    text-align: center;
+    color: black;
+
+}
+/*#servicios{
+    background-color: grey;
+    padding-bottom: 10px;
+}*/
