@@ -24,7 +24,11 @@ body{
     color: black;
 
 }
-#servicios{
+#servicios {
     background-color: grey;
     padding-bottom: 10px;
+}
+#servicios a{
+    font-weight: bolder;
+    color: white;
 }
