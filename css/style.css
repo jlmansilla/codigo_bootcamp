@@ -1,0 +1,30 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+.navegacionPropia{
+    background-color: rgb(0, 0, 0);
+}
+
+.nav-link{
+    color: rgb(255, 255, 253);
+}
+.nav-link:hover{
+   color: blue;
+}
+
+#main-footer{
+   background-color: black;
+   color:beige;
+   padding: 5px;
+   text-align: center;
+}
+
+#quienes h1{
+    text-align: center;
+    color: black;
+
+}
+#servicios{
+    background-color: grey;
+    padding-bottom: 10px;
+}
