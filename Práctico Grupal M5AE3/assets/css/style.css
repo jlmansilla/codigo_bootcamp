@@ -1,7 +1,7 @@
 body{
     font-family: 'Open Sans', sans-serif;
           margin: 0;
-          margin-bottom: 10px;
+        /*margin-bottom: 10px;*/
               
         
      
@@ -20,6 +20,7 @@ body{
 #main-footer{
    background-color: black;
    color:beige;
+   margin-top: 10px;
    padding: 5px;
    text-align: center;
 }
