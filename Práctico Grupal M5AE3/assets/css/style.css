@@ -34,3 +34,11 @@ body{
     background-color: grey;
     padding-bottom: 10px;
 }*/
+#principal,
+#competencias,
+#equipo,
+#enlaces,
+#contacto {
+padding-top: 60px;
+min-height: 700px;
+}
