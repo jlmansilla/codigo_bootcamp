@@ -34,20 +34,3 @@ body{
     background-color: grey;
     padding-bottom: 10px;
 }*/
-#principal,
-#competencias,
-#equipo,
-#enlaces,
-#contacto {
-    padding-top: 60px;
-    min-height: 700px;
-}
-.navbar a {
-    font-weight: bold;
-    }
-.navbar-dark {
-    background-color:black;
-}
-h1, h2, h3, h4, h5, h6, .navbar, .modal {
-    font-family: 'Poiret One', cursive;
-    }
