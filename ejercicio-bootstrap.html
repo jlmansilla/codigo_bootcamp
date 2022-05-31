@@ -10,27 +10,92 @@
     <title>bootstrap-awakelab</title>
 </head>
 <body>
-    <div class="container-fluid bg-primary" id=”principal”>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand">
+        <a class="navbar-brand" href="#">Awakelab</a>
+            <!-- Navigation Bar Hamburger-->
+            <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navigation"
+            aria-expanded="false"
+            aria-controls="navigation"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- End Navigation Bar Hamburger -->
+            <!-- Navigation Links -->
+        <div class="collapse navbar-collapse" id="navigation">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link scroll-trigger" href="#principal">Welcome</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link scroll-trigger" href="#servicios">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link scroll-trigger" href="#galeria">Galería</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link scroll-trigger" href="#acercade">Acerca de</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link scroll-trigger" href="#contacto">Contacto</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                    role="button" aria-haspopup="true" aria-expanded="false">
+                    Perfil <span class="caret"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item scroll-trigger" href="#" data-toggle="modal"
+                        data-target="#profile-modal">
+                        Perfil</a>
+
+                        <a class="dropdown-item scroll-trigger" data-toggle="modal"          data-target="#settings-modal"> Configuración</a>
+                    <div class="dropdown-divider"></div>
+                        <a class="dropdown-item scroll-trigger" href="">
+                        Logout</a>
+                    </div>
+                </li>
+            </ul>
+                
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2"
+                    type="text"
+                    placeholder="Search"
+                    aria-label="Search">
+                    <button class="btn btn-outline-success border-dark
+                    font-weight-bold text-white my-2 my-sm-0"
+                    type="submit">Search</button>
+                </form>
+        </div>
+                <!-- Navigation Links -->
+    </nav>
+    <!-- End Navigation Bar -->
+    <div class="container-fluid bg-primary" id="principal">
         <div class="row">
             <h1>Grupo Full Stack Python de Awakelab</h1>
         </div>
     </div>
-        <div class="container-fluid bg-dark" id=”competencias”>
+        <div class="container-fluid bg-dark" id="competencias">
             <div class="row">
                 <h3>Nuestras Competencias</h3>
             </div>
         </div>
-        <div class="container-fluid bg-light" id=”equipo”>
+        <div class="container-fluid bg-light" id="equipo">
             <div class="row">
                 <h3>Nuestro Equipo</h3>
             </div>
         </div>
-        <div class="container-fluid bg-dark" id=”enlaces”>
+        <div class="container-fluid bg-dark" id="enlaces">
             <div class="row">
                 <h3>Enlaces de Interés</h3>
             </div>
         </div>
-        <div class="container-fluid bg-light" id=”contacto”>
+        <div class="container-fluid bg-light" id="contacto">
             <div class="row">
                 <h2>Contáctanos</h2>
             </div>

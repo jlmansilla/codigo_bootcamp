@@ -1,6 +1,6 @@
 body{
-    font-family: 'Open Sans', sans-serif;
-          margin: 0;
+    /*font-family: 'Open Sans', sans-serif;
+          margin: 0;*/
         /*margin-bottom: 10px;*/
               
         
@@ -10,20 +10,20 @@ body{
     background-color: blue;
 }
 
-.nav-link{
+/*.nav-link{
     color: white;
-}
+}*/
 /*.nav-link:hover{
    color: blue;
 }*/
 
-#main-footer{
+/*#main-footer{
    background-color: black;
    color:beige;
    margin-top: 10px;
    padding: 5px;
    text-align: center;
-}
+}*/
 
 #reseña{
     text-align: center;
@@ -39,6 +39,15 @@ body{
 #equipo,
 #enlaces,
 #contacto {
-padding-top: 60px;
-min-height: 700px;
+    padding-top: 60px;
+    min-height: 700px;
 }
+.navbar a {
+    font-weight: bold;
+    }
+.navbar-dark {
+    background-color:black;
+}
+h1, h2, h3, h4, h5, h6, .navbar, .modal {
+    font-family: 'Poiret One', cursive;
+    }
