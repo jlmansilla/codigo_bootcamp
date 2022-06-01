@@ -5,16 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
     <!--Estilos Locales-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <title>Ejercicio ABP-AE4</title>
 </head>
 <body>
     <br>
     <header id="inicio"></header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fondo-nav sticky-top" id="menu-navegacion">
-        <a href="index.html" class="navbar-bran">
+       <div class="container my-1" >
+        <a href="#" class="navbar-bran">
             <img src="img/imagen2.jpg" alt="" class="img-fluid" style="width: 100px;">
         </a>
+        <br>
         <button class="navbar-toggler" type="button"
             data-toogle="collapse"
             data-target="#navbarSupportedContent"
@@ -24,21 +26,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSuppoertedContent">
             <div class="collapse navbar-collapse" id="navigation">
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link scroll-trigger" href="#principal">Inicio</a>
+                            <a class="nav-link  active" href="#principal">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link scroll-trigger" href="#empresa">Empresa</a>
+                            <a class="nav-link" href="#empresa">Empresa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link scroll-trigger" href="#servicio">Servicios</a>
+                            <a class="nav-link " href="#servicio">Servicios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link scroll-trigger" href="#productos">Nuestros productos</a>
+                            <a class="nav-link " href="#productos">Nuestros productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link scroll-trigger" href="#contacto">Contacto</a>
+                            <a class="nav-link " href="contacto1.html">Contacto</a>
                         </li>
                         
                         
@@ -47,33 +49,138 @@
                         
                 </div>
         </div>
+     </div> 
     </nav>
-    <section id="productos">
-        <div class="container">
-            <h1>Nuestros Productos</h1>
-            <div class="row">
-                <div class="col-sm-3" style="border: 1px solid blue ; background: #fafafa; color:blue">---</div>
-                <div class="col-sm-3" style="border: 1px solid blue ; background: #fafafa; color:blue">---</div>
-                <div class="col-sm-3" style="border: 1px solid blue ; background: #fafafa; color:blue">---</div>
+    <br>
+    <!--Imagen de cabecera - usar jumbotron-->
+    <div class="container">
+        <section id="empresa" class="text-center">
+        <div class="row">
+
+            <div class="col-sm-3" >
+                <img src="img/imagen3.jpg" class="img-fluid position-relative align-content-center">
             </div>
+            <div class="col-sm-9">
+                
+                    <div class="jumbotron pb-5">
+                        <h1 class="display-4"><strong>La Empresa</strong></h1>
+                        <p class="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium, debitis? Adipisci deserunt distinctio corporis iure.</p>
+                        <br>
+                        <p class="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium, debitis? Adipisci deserunt distinctio corporis iure.</p> 
+                    </div>
+                
+            </div>
+        </div>
+        </section>
     </div>
-    </section>
-
-
     <div class="container">
         <div class="row">
-            <div class="card bg-primary text-white col-sm-4">
-                <div class="card-body">Primary Card</div>
+            <div class="col-sm-3">
+                <p class="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium, debitis? Adipisci deserunt distinctio corporis iure.</p>
+                 
             </div>
-            <div class="card bg-success text-white col-sm-4">
-                <div class="card-body">Primary Card</div>
+            <div class="col-sm-9">
+                <p class="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium, debitis? Adipisci deserunt distinctio corporis iure.</p> 
+                <br>
+                <button class="btn btn-outline-primary btn-lg text-center"><a href="#">Más Información</a></button>
             </div>
-            <div class="card bg-secondary text-white col-sm-4">
-                <div class="card-body">Primary Card</div>
-            </div>
-
         </div>
+        <br>
+        
+        <div class="row">
+            
+            <div class="card bg-primary text-white col-sm-3">
+                <div class="card-body">Clasifica</div>
+            </div>
+            <div class="col-sm-9">
+                <h2 class="mt-5"><i class="fas fa-paint-brush"></i><br> Clasificación de contenido</h2>
+              <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro possimus harum nemo recusandae tempora, eum enim commodi quibusdam aperiam non inventore voluptatem quae quidem officia. Vero dicta nostrum ipsam rerum!</p>
+              <br>
+              <button class="btn btn-info text-center mb-5">
+                  Ver más <i class="fas fa-arrow-circle-right"></i>
+              </button>
+            </div>
+            
+            <div class="card bg-success text-white col-sm-3">
+                <div class="card-body">Respalda</div>
+            </div>
+            <div class="col-sm-9">
+                <h2 class="mt-5"><i class="fas fa-paint-brush"></i><br> Respaldo de información</h2>
+              <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro possimus harum nemo recusandae tempora, eum enim commodi quibusdam aperiam non inventore voluptatem quae quidem officia. Vero dicta nostrum ipsam rerum!</p>
+              <br>
+              <button class="btn btn-info text-center mb-5">
+                  Ver más <i class="fas fa-arrow-circle-right"></i>
+              </button>
+            </div>
+            <div class="card bg-primary text-white col-sm-3">
+                <div class="card-body">Apps</div>
+            </div>
+            <div class="col-sm-9">
+                <h2 class="mt-5"><i class="fas fa-paint-brush"></i><br> Aplicaciones iOS y Android</h2>
+              <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro possimus harum nemo recusandae tempora, eum enim commodi quibusdam aperiam non inventore voluptatem quae quidem officia. Vero dicta nostrum ipsam rerum!</p>
+              <br>
+              <button class="btn btn-info text-center mb-5">
+                  Ver más <i class="fas fa-arrow-circle-right"></i>
+              </button>
+            </div>
+            <div class="card bg-success text-white col-sm-3">
+                <div class="card-body">Otros</div>
+            </div>
+            <div class="col-sm-9">
+                <h2 class="mt-5"><i class="fas fa-paint-brush"></i><br> Otros recursos de interés</h2>
+              <p class="mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro possimus harum nemo recusandae tempora, eum enim commodi quibusdam aperiam non inventore voluptatem quae quidem officia. Vero dicta nostrum ipsam rerum!</p>
+              <br>
+              <button class="btn btn-info text-center mb-5">
+                  Ver más <i class="fas fa-arrow-circle-right"></i>
+              </button>
+            </div>
+            
+        </div>
+        
+        <div class="col-sm-9 offset-sm-3">
+            <!-- Footer -->
+            <footer class="page-footer font-small cyan darken-3">
+    
+      
+        
+                    <!-- Facebook -->
+                    <i class="fab fa-facebook-f"><img src="img/facebook.svg" alt="Facebook" width="32" height="32"></i>
+
+                    <!-- Twitter -->
+                    <i class="fab fa-twitter"><img src="img/twitter.svg" alt="Twitter" width="32" height="32"></i>
+
+                    <!-- Google -->
+                    <i class="fab fa-google"><img src="img/google.svg" alt="Google" width="32" height="32"></i>
+
+                    <!-- Instagram -->
+                    <i class="fab fa-instagram"><img src="img/instagram.svg" alt="Instagram" width="32" height="32"></i>
+
+                    <!-- Linkedin -->
+                    <i class="fab fa-linkedin-in"><img src="img/linkedin.svg" alt="Linkedin" width="32" height="32"></i>
+
+                    <!-- Pinterest -->
+                    <i class="fab fa-pinterest"><img src="img/pinterest.svg" alt="Pinterest" width="32" height="32"></i>
+
+                    <!-- Youtube -->
+                    <i class="fab fa-youtube"><img src="img/youtube.svg" alt="Youtube" width="32" height="32"></i>
+
+                    <!-- Whatsapp -->
+                    <i class="fab fa-whatsapp"><img src="img/whatsapp.svg" alt="Whatsapp" width="32" height="32"></i>
+                     
+        
+      
+            <!-- Footer Elements -->
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2022 Copyright:
+                <a href="#"> CDD.com</a>
+            </div>
+            <!-- Copyright -->
+            </footer>
+            <!-- Footer -->
+        </div>       
+
+        
 </div>
-  <script src="js/bootstrap.min.js"></script>  
+  <script src="js/bootstrap.js"></script>  
 </body>
 </html>
