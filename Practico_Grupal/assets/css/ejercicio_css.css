@@ -1,0 +1,18 @@
+div {
+    width:400px;
+    height:150px;
+    background-color:#ad6be3;
+    border: 4px dotted;
+    padding:40px;
+    margin:50px;
+    display: inline-table;
+    text-align:center;
+  }
+div p {
+   display: table-cell;
+   vertical-align:middle;
+   font-family: impact;
+   font-size:32px;
+   text-transform: uppercase;
+   color:#330757;
+  }
