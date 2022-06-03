@@ -1,6 +1,6 @@
 function validar(){
-const btnEnviar = document.getElementById('btn-enviar');
-
+  
+  const btnLimpiar = document.getElementById('btn-limpiar');
   const nombreFormulario = document.getElementById('formulario')
   const nombreDeUsuario = document.getElementById('usuario');
   const direcciónEmail = document.getElementById('email');
@@ -22,8 +22,12 @@ const btnEnviar = document.getElementById('btn-enviar');
     numeroTelefono.focus();
     return false;
   }
+  
+    btnLimpiar.click();
+    
+    alert("El formulario fue enviado satisfactoriamente");
+    windows.onload= function(){nombreDeUsuario.focus();}
   return true;
-
-
+  
 
 }
