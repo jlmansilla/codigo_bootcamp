@@ -22,11 +22,11 @@ function validar(){
     numeroTelefono.focus();
     return false;
   }
+  btnLimpiar.click();
+  nombreDeUsuario.focus();
+  alert("El formulario fue enviado satisfactoriamente");
   
-    btnLimpiar.click();
-    
-    alert("El formulario fue enviado satisfactoriamente");
-    windows.onload= function(){nombreDeUsuario.focus();}
+  
   return true;
   
 
