@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-md-9 offset-md-3">
                 <section>
-                    <form action="#" method="post" enctype="text/plain">
+                    <form id="formulario" enctype="text/plain">
                         <label for="usuario">Ingrese su nombre</label>
                         <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Nombre" ><br>
                         <label for="email">Ingrese su E-mail</label>
@@ -36,7 +36,7 @@
                         <input type="number" name="telefono" id="telefono" class="form-control" placeholder="Telefono" ><br>
                         <label for="mensaje">Ingrese su mensaje</label>
                         <textarea name="mensaje" cols="50" id="mensaje" class="form-control" placeholder="Mensaje" ></textarea><br><br>
-                        <button onclick="validar()"  id="btn-enviar" type="submit" class="btn btn-success">Enviar          </button>
+                        <button onclick="return validar()"  id="btn-enviar" type="submit" class="btn btn-success">Enviar          </button>
                         <button type="reset" class="btn btn-secondary">Limpiar          </button>
                     </form>
                 </section>
