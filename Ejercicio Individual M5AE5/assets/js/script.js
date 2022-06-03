@@ -1,5 +1,5 @@
 const weekday = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
-
+const colors = ["blue","navy","green","olive","yellow","lime","magenta"];
 function mostrarFecha(){
     let fecha=new Date();
     let dia=weekday[fecha.getDay()];
@@ -10,7 +10,11 @@ window.onload= mostrarFecha();
 
 function colorLetras(){
     let titulo = document.getElementById("titulo").innerHTML; 
-    let largo = titulo.length();
-    alert('la palabra tiene ' + largo);
+    let largo = titulo.length;
+    for (i=0; i<largo; i++){
+        document.getElementById("titulo")=(titulo[i].fontcolor(colors[i]));
+        
+    }
+
 }
-colorLetras();
+colorLetras()
