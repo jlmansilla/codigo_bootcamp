@@ -12,7 +12,7 @@ function colorLetras(){
     let titulo = document.getElementById("titulo").innerHTML; 
     let largo = titulo.length;
     for (i=0; i<largo; i++){
-        document.getElementById("titulo")=(titulo[i].fontcolor(colors[i]));
+        document.getElementById("titulo")=titulo;
         
     }
 
