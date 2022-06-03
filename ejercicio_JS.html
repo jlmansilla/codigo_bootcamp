@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    
+</head>
+<title> Java script </title>
+<!--<FORM name="formulario" action="JavaScript:guarDadatos()">  -->
+<FORM name="formulario">
+    <p>Destinatario:</p>     
+    <SELECT NAME="lista" required>
+    <OPTION SELECTED>Sr
+    <OPTION>Sra.
+    </SELECT>
+    <br>
+
+    <label for="nombres"><p>*Apellido y nombre: </p></label><br>
+    <INPUT TYPE="text"  id="nombres" name="nombres" required>
+    <br>
+
+    <label for="razonsocial"><p>*Razon Social:</p></label>
+    <INPUT class="razon" TYPE="text"  id="razonsocial" name="razonsocial" required>
+    <br>
+
+    <label for="mail"><p>*Email:</p></label>
+    <INPUT TYPE="email" id="mail" required>
+    <br>
+
+    <label for="telefono"><p>*Telefono:</p></label>
+    <INPUT TYPE="tel"  id="telefono" name="telefono"required>
+    <br>
+
+    <label for="celular"><p>*Celular:</p></label>
+    <INPUT TYPE="tel"  id="celular" name="celular"required>
+    <br>
+
+    <p>Via de contacto:</p>
+    <SELECT NAME="viadecontacto"required >
+    <OPTION SELECTED>Email
+    <OPTION>Telefono
+    <OPTION>Celular
+    </SELECT>
+    <br>
+
+    <label for="comentarios"><p>*Comentarios:</p></label>
+    <textarea  id="comentarios" rows="10" cols="40" maxlength="300" name="comentarios" >Escribe aquí tus comentarios</textarea>
+    <br>
+
+    <input type="submit" name="commit" value="Enviar">
+</form>
