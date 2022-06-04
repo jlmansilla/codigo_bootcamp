@@ -35,6 +35,12 @@ function colorLetras(){
 }
 colorLetras()
 function restaFechas(){
-          let d = new Date(2022, 12, 31, 24, 00, 00, 00);
-          let dif=fecha-d;
+        let actual = new Date("06/05/2022"); 
+        let d = new Date("12/31/2022");
+        let difference= Math.abs(d-actual);
+        let days = difference/(1000 * 3600 * 24)
+        
+document.getElementById("fecha").innerHTML = days + " días";
+
 }
+restaFechas()
