@@ -28,8 +28,13 @@ function colorLetras(){
         colores1=colores1 + letra;
         
       }
+      
 
       document.getElementById("titulo").innerHTML = colores;
       document.getElementById("parrafo").innerHTML = colores1;
 }
 colorLetras()
+function restaFechas(){
+          let d = new Date(2022, 12, 31, 24, 00, 00, 00);
+          let dif=fecha-d;
+}
