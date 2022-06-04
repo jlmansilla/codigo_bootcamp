@@ -1,5 +1,5 @@
 const weekday = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
-const colors = ["blue","navy","green","olive","yellow","lime","magenta"];
+const colors = ["blue","navy","green","olive","yellow","lime","magenta", "purple", "cyan", "brown", "black", "gray", "teal", "lime" ];
 function mostrarFecha(){
     let fecha=new Date();
     let dia=weekday[fecha.getDay()];
@@ -9,10 +9,10 @@ function mostrarFecha(){
 window.onload= mostrarFecha();
 
 function colorLetras(){
-    let titulo = document.getElementById("titulo").innerHTML; 
+    let titulo = "Tiempo Restante"; 
     let largo = titulo.length;
     for (i=0; i<largo; i++){
-        document.getElementById("titulo")=titulo;
+        document.getElementById("titulo").innerHTML = document.write(titulo[i].fontcolor([colors[i]]));
         
     }
 
