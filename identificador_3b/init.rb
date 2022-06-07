@@ -14,14 +14,14 @@ puts "-" * 10
 puts "Ingresa la clave:"
 clave = gets.chomp.to_s
 puts "Ingresa Nombre:"
-nombre = gets.chomp.to_i
+nombre = gets.chomp.to_s
 
 puts "Ingresa la marca:"
 marca = gets.chomp.to_s
 puts "Ingresa Unidad:"
-nombre = gets.chomp.to_i
+unidad = gets.chomp.to_s
 
-puts "Ingresa la precio:"
+puts "Ingresa el precio:"
 precio = gets.chomp.to_i
 puts "Ingresa categoria:"
 categoria = gets.chomp.to_s
@@ -32,9 +32,10 @@ else
     precio_tipo += " CLP"
 end
 
+precio_string=precio.to_s
 puts "Clave: " + clave
 puts "Nombre: " + nombre
 puts "Marca: " + marca
-puts "Precio: " + precio.to_s + precio_tipo
+puts "Precio: " + precio_string + precio_tipo
 puts "Unidad: " + unidad
 puts "Categoria: " + categoria
