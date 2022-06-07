@@ -9,7 +9,9 @@ body{
 h1{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-style: italic;
+    
 }
 p{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:x-large;
 }
