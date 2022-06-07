@@ -12,7 +12,7 @@ print "Ingresa la siguiente información del producto"
 puts "-" * 10
 
 puts "Ingresa la clave:"
-clave = gets.chomp.to_s
+clave = gets.chomp
 puts "Ingresa Nombre:"
 nombre = gets.chomp.to_s
 
