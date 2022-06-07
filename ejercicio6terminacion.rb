@@ -12,16 +12,30 @@ a <<- letra
 
 end
 
-=begin
-    
-rescue => exception
-    
+b = "++*~~*++*"
+
+for i in 1..20
+    puts b
+
+
+letra = b [0]
+b = b[1...]
+b <<- letra
+
+
+
 end
-for i in 1..10
-    puts a
-    a[10-(i+1)] = a[a.length]
-   
-    
-    
+
+c = "=|/|/|=|/|"
+
+for i in 1..20
+    puts c
+
+
+letra = c [0]
+c = c[1...]
+c <<- letra
+
+
+
 end
-=end
