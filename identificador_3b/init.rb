@@ -14,17 +14,17 @@ puts "-" * 10
 puts "Ingresa la clave:"
 clave = gets.chomp
 puts "Ingresa Nombre:"
-nombre = gets.chomp.to_s
+nombre = gets.chomp
 
 puts "Ingresa la marca:"
-marca = gets.chomp.to_s
+marca = gets.chomp.
 puts "Ingresa Unidad:"
-unidad = gets.chomp.to_s
+unidad = gets.chomp
 
 puts "Ingresa el precio:"
 precio = gets.chomp.to_i
 puts "Ingresa categoria:"
-categoria = gets.chomp.to_s
+categoria = gets.chomp
 
 if precio < 1000
     precio_tipo = " USD"
