@@ -33,11 +33,15 @@ if precio < 1000
     respuesta= gets.chomp
     if respuesta == "1"
         precio_string = "$#{precio} USD, Precios USD"
+        
     elsif respuesta == "2"
         precio_string = "$#{precio} CLP, Precios CLP"
+        
     end
 else
     precio_string = "#{precio} CLP, Precios CLP"
+    
+    
 end
 
 
@@ -47,11 +51,10 @@ puts "Ingresa categoria:"
 categoria = gets.chomp
 
 
-
-puts "\n\nLa información del producto capturada es:\n\n"
-puts "Clave: " + clave
-puts "Nombre: " + nombre
-puts "Marca: " + marca
-puts "Precio: " + precio_string
-puts "Unidad: " + unidad
-puts "Categoria: " + categoria
+print "\n\n La información del producto capturada es:\n\n
+clave: #{clave}
+nombre: #{nombre}
+marca: #{marca}
+unidad: #{unidad}
+precio: #{precio_string}
+categoria: #{categoria} \n\n"
