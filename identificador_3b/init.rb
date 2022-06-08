@@ -1,17 +1,18 @@
 puts "-" * 60
 print "|"
-print "" * 20
+print " " * 8
 print "Bienvenido al identificador de precios 3b's"
+print " " * 7
 print "|"
 puts ""
 puts "-" *60
 puts
 puts
-puts "-" * 10
+print "-" * 10
 print "Ingresa la siguiente información del producto"
 puts "-" * 10
 
-puts "Ingresa la clave:"
+puts "\nIngresa la clave:"
 clave = gets.chomp
 
 puts "Ingresa Nombre:"
