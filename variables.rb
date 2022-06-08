@@ -28,6 +28,8 @@ class Car
     
 end
 
+
+
 vw = Car.new(brand: 'Volkswagen')
 mercedez = Car.new(brand: 'Mercedez Benz')
 puts Car.count
