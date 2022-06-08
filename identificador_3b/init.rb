@@ -37,7 +37,7 @@ if precio < 1000
         precio_string = "$#{precio} CLP, Precios CLP"
     end
 else
-    precio_string = "#{precio} CLP"
+    precio_string = "#{precio} CLP, Precios CLP"
 end
 
 
