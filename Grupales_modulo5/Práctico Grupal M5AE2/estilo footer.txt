@@ -1,0 +1,14 @@
+ <style>
+        body {
+          margin: 0;
+          margin-bottom: 10px;
+        }
+        footer {
+          background-color: black;
+          color: white;
+          position: absolute;
+          padding-bottom: 3em;
+          width: 100%;
+        }
+        
+  </style>
