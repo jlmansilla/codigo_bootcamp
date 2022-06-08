@@ -20,23 +20,27 @@ nombre = gets.chomp
 puts "Ingresa la marca:"
 marca = gets.chomp
 
+puts "Ingresa Unidad:"
+unidad = gets.chomp
+
 puts "Ingresa el precio:"
 precio = gets.chomp.to_i
+
+
 
 if precio < 1000
     puts "¿La cantidad es en dólares? Si(1), No(2)"
     respuesta= gets.chomp
     if respuesta == "1"
-        precio_string = "#{precio} USD"
+        precio_string = "$#{precio} USD, Precios USD"
     elsif respuesta == "2"
-        precio_string = "#{precio} CLP"
+        precio_string = "$#{precio} CLP, Precios CLP"
     end
 else
     precio_string = "#{precio} CLP"
 end
 
-puts "Ingresa Unidad:"
-unidad = gets.chomp
+
 
 
 puts "Ingresa categoria:"
@@ -44,7 +48,7 @@ categoria = gets.chomp
 
 
 
-#precio_string=precio.to_s
+puts "\n\nLa información del producto capturada es:\n\n"
 puts "Clave: " + clave
 puts "Nombre: " + nombre
 puts "Marca: " + marca
