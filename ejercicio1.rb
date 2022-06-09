@@ -18,4 +18,4 @@ unless edad > 18
 else
     respuesta = "Es un adulto no requiere restricciones"
 end
-puts "Hola te Recomendados esto para tu hijo: " + respuesta
+puts "Hola te Recomendados esto para tu hijo: #{respuesta}"
