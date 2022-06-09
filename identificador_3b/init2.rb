@@ -14,11 +14,13 @@ puts "-" * 10
 
 puts "\n¿Cuántos productos desea dar de alta? :"
 alta = gets.chomp.to_i
+suma_usd = 0
+suma_clp = 0
 
 for i in 1..alta do
     
 
-    puts "\nIngresa la clave del producto #{alta}:"
+    puts "\nIngresa la clave del producto #{i}:"
     clave = gets.chomp
 
     puts "Ingresa Nombre:"
