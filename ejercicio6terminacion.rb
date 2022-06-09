@@ -6,7 +6,7 @@ for i in 1..20
 
 letra = a [0]
 a = a[1...]
-a <<- letra
+a << letra
 
 
 
