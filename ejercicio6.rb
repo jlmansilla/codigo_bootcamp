@@ -8,8 +8,8 @@ response =RestClient.get url
 response1 = RestClient.get url1
 response2 = RestClient.get url2
 $result = JSON.parse(response)
-$result2 = JSON.parse(response1.to_str)
-$result3 = JSON.parse(response2.to_str)
+$result2 = JSON.parse(response1)
+$result3 = JSON.parse(response2)
 
 def nombres_regiones
     $result.each do |i|
