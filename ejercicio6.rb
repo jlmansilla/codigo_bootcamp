@@ -14,10 +14,7 @@ $result3 = JSON.parse(response2.to_str)
 def nombres_regiones
     $result.each do |i|
         puts i['nombre']
-    end    
-    
-    
-
+    end       
 end
 
 def nombres_comunas
