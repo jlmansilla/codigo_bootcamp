@@ -5,10 +5,12 @@ for i in 1..20
 
 
 letra = a [0]
+#puts letra
 a = a[1...]
+#puts a
 a << letra
-
-
+#puts a
+#y= gets.chomp
 
 end
 
