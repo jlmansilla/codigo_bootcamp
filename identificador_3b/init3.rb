@@ -36,20 +36,40 @@ def ingreso
         print "\nLos datos del producto son: \n 
         Clave: #{clave} Nombre: #{nombre} Unidad:  #{unidad}  Subcategoría: #{subcategoria} 
         "
+        $arreglo =[$precio.to_i]
+        _suma($arreglo)
         iva
     end
     
 end
 
+
+
 def iva
-    precioFinal=$precio.to_f  + ($precio.to_f * 0.19)
+    precioFinal=($precio.to_f  + $precio.to_f * 0.19)
     puts "precioFinal: #{'%.2f' % precioFinal}"
 end
 
 ingreso
-    
 
+puts "\n ++++++++++++++ Sumas de precios finales +++++++++++++++++"
 
+$cantidad   = rand(1..10)
+
+def _suma
+    for i in [1..$cantidad] do
+        
+    end
+end
+
+puts "cantidad de productos a sumar: #{$cantidad}"
+_suma
+def _suma()
+    for i in [1..$cantidad] do
+        suma +=($precio.to_f  + $precio.to_f * 0.19)
+        puts suma
+    end
+end
 
 
 
