@@ -137,16 +137,17 @@ def total(numero)
     arr= catalogo(lineas).slice(0,numero) #guarda en la variable arr la cantidad de productos según
     #lo indicado por el usuario -catalogo(lineas)- es el arreglo, slice toma una cantidad de elementos
     #del arreglo desde 0 hasta la cantidad indicada por el usuario
-    totalizar = []#crea un arreglo 
+    totalizar = []#crea un arreglo para almacenar los valores con iva
     
-    for i in (0..numero-1) do
+    for i in (0..numero-1) do #ciclo que imprime los nombres de los productos y sus precios
     
-        totalizar << (arr[i][5].to_f)
-        puts "\n #{arr[i][1]}      $#{arr[i][5]}"
+        totalizar << (arr[i][5].to_f) #agrega un precio con iva al arreglo
+        puts "\n #{arr[i][1]}      $#{arr[i][5]}" #imprime el nombre y precio del producto
     end
     
 
-    puts "\n El precio Total de esos #{numero} productos es  #{totalizar.reduce:+}"
+    puts "\n El precio Total de esos #{numero} productos es  #{totalizar.reduce:+}" 
+    #suma todos los elementos (precios)almacenados en el arreglo -totalizar-
 end
 #-----------------------------------------Método total---------------------------------------------------
 total(cantidad) # llamada a método total
