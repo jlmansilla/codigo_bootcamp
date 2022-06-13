@@ -33,7 +33,7 @@ puts "-" * 10
 =end
 ##-------------------------------------Método lineas-----------------------------------------------
 def lineas
-    content = File.read("identificador_3b/DATOS.txt") # lee el archivo
+    content = File.read("DATOS.txt") # lee el archivo
     lines = content.split("\n") # divide el contenido en líneas
     
     return lines
