@@ -14,10 +14,9 @@ puts ""
 puts "-" *60
 puts
 puts
-print "-" * 20
+print "-" * 10
 print "Catálogo de productos"
-puts "-" * 20
-puts "\n"
+puts "-" * 10
 #-----------------------------------------Fin Encabezado-------------------------------------------
 
 =begin
@@ -34,10 +33,10 @@ puts "\n"
 =end
 ##-------------------------------------Método lineas-----------------------------------------------
 def lineas
-    content = File.read("DATOS.txt") # lee el archivo y genera un string (content)
-    lines = content.split("\n") # divide (split) el contenido en líneas (el delimitador es el salto de línea)
+    content = File.read("identificador_3b/DATOS.txt") # lee el archivo
+    lines = content.split("\n") # divide el contenido en líneas
     
-    return lines #valor de retorno es un arreglo (Array)
+    return lines
 end
 ##-----------------------------------------Fin método lineas-------------------------------------------
 
@@ -45,29 +44,29 @@ end
     Método catalogo
     Este método recibe el valor de retorno del método -lineas- en este caso un arreglo de 10 líneas
     o 10 elementos, procesa  cada línea para cumplir con el enunciado del problema, además llama al
-    método -iva- para agragar el campo -con_iva-, por último guarda un arreglo por cada producto en
-    el archivo de texto con los valores solicitados por el problema. Su valor de retorno es este
-    arreglo.
+    método -iva- para agragar el campo -con_iva-, por último guarda un String nuevo con 
+    el texto de los valores solicitados por el problema. Su valor de retorno es un String llamado
+    -arreglo-.
 =end
 ##-------------------------------------Método catalogo-----------------------------------------------
 def catalogo(archivo)
-    arreglo = [] #define un areglo vacio
+    arreglo ="" #inicializa un String
     
     archivo.each do |i| #por cada elemento (linea)en el archivo .txt captura los caracteres requeridos
         indice="#{i[0..1]}"
         nombre="#{i[2..8]}"
         unidad="#{i[9..10]}"
         precio="#{i[11..15]}"
-        con_iva = iva(precio) #llama al método -iva- para agregar 19% al precio
+        con_iva = iva(precio)#llama al método -iva- para agregar 19% al precio
         categoria="#{i[16..18]}"
-        subcategoria="#{i[19..24]}"
-        clave = indice + categoria[0..2] + "3BS" # genera la nueva clave del producto           
+        subcategoria="#{'%6s' % i[19..24]}" #rellena los espacios en blanco si los hubiera
+        clave = indice + categoria[0..2] + "3BS" # genera la nueva clave del producto 
         
-        arreglo << [clave, nombre, unidad, categoria, subcategoria, '%.2f' % con_iva]     
-        #en cada iteración agrega un arreglo nuevo a la variable -arreglo- con la 
-        #información de cada producto
+        arreglo += "#{clave}#{nombre}#{unidad}#{categoria}#{subcategoria}#{'%08.2f' % con_iva}\n"
+        #en cada iteración agrega al String una  nueva línea- con la información de cada producto
     end
-    return arreglo #retorna un arreglo con todos los productos en el nuevo formato
+    
+    return arreglo #retorna un String con todos los productos en el nuevo formato
 end
 ##-------------------------------------Fin método catalogo-----------------------------------------------
 
@@ -76,8 +75,7 @@ end
     Recibe el precio desde el método -catalogo- y devuelve el precio con iva como número
     de punto flotante
 =end
-##-------------------------------------Método iva-----------------------------------------------
-
+##-------------------------------------Método iva---------------------------------------------------------
 def iva(valor)
     precioFinal=(valor.to_f  + valor.to_f * 0.19)
     return precioFinal
@@ -87,26 +85,26 @@ end
 
 =begin
     Método imprime
-    Se encarga de imprimir los productos, hace uso del método -catalogo- e imprime la lista de
-    productos
+    Se encarga de imprimir la cantidad de  productos requerida por el usuario, recibe un parametro -arreglo- que es un arreglo con los productos requeridos, finalmente  imprime la lista de estos productos
 =end
 ##-------------------------------------Método imprime-----------------------------------------------
-def imprime
-    arr = catalogo(lineas)#guarda en el arreglo -arr- el valor devuelto por el método catálogo
-    
-    
-    (0..arr.length-1).each do |i| #por cada elemento del arreglo imprime los 6 atributos del producto
-        
-     puts " Los datos del producto son:\nClave: #{arr[i][0]} Nombre: #{arr[i][1]} Unidad: #{arr[i][2]} Categoria: #{arr[i][3]} Subcategoria: #{arr[i][4]} \nPrecio Final: #{arr[i][5]}\n\n"
+
+def imprime(arreglo)
+       
+    arreglo.each do |i| #por cada elemento del arreglo imprime los 6 atributos del producto
+        clave="#{i[0..7]}"
+        nombre="#{i[8..14]}"
+        unidad="#{i[15..16]}"
+        categoria="#{i[17..19]}"
+        subcategoria="#{i[20..25]}"
+        con_iva="#{i[26..33]}"
+                    
+        puts " Los datos del producto son:\nClave: #{clave} Nombre: #{nombre} Unidad: #{unidad} Categoria: #{categoria} Subcategoria: #{subcategoria} \nPrecio Final: #{con_iva}\n\n"
+           
     end
-    
+       
 end
-##-------------------------------------Fin método imprime-----------------------------------------------
-
-imprime #llamada al método imprime
-
-#---------------------------------------Fin primera parte del programa----------------------------------
-
+##-------------------------------------Fin método imprime--------------------------------------------------------
 =begin
     Sub -encabezado
     Esta sección genera un nuevo encabezado para la segunda parte del programa
@@ -115,44 +113,40 @@ imprime #llamada al método imprime
 =end
 
 #-----------------------------------------Sub-encabezado---------------------------------------------------
-
-
 puts "\n ++++++++++++++ Sumas de precios finales +++++++++++++++++"
-puts "Ingrese la cantidad de productos a totalizar: "
+puts "Ingrese la cantidad de priductos a totalizar: "
 cantidad = gets.chomp.to_i
-
 #-----------------------------------------Fin Sub-encabezado---------------------------------------------------
 
 =begin
     Método total
     Esta sección suma los valores con iva de n cantidad de productos, según lo indicado por el usuario.
-    luego imprime los nombres y precios de los productos y la suma total de ellos
+    luego llama al método -imprime- al que le pasa un arreglo con la cantidad de productos a imprimir por último imprime la suma de los calores según la cantidad de productos requeridos por el usuario.
     
 =end
 
 #-----------------------------------------Método total---------------------------------------------------
-
 def total(numero)
-       
-    arr= catalogo(lineas).slice(0,numero) #guarda en la variable arr la cantidad de productos según
-    #lo indicado por el usuario -catalogo(lineas)- es el arreglo, slice toma una cantidad de elementos
-    #del arreglo desde 0 hasta la cantidad indicada por el usuario
-    totalizar = []#crea un arreglo para almacenar los valores con iva
+    arreg = catalogo(lineas).split("\n")#llamada al método -catalogo- para generar un nuevo areglo (arreg)
+    arr= arreg.slice(0,numero)#selecciona la cantidad de elementos del arreglo (productos)
     
-    for i in (0..numero-1) do #ciclo que imprime los nombres de los productos y sus precios
+    totalizar = []#inicializa un arreglo (-totalizar)
     
-        totalizar << (arr[i][5].to_f) #agrega un precio con iva al arreglo
-        puts "\n #{arr[i][1]}      $#{arr[i][5]}" #imprime el nombre y precio del producto
+    for i in (0..numero-1) do #por cada iteración agrega el valor con iva del producto al arreglo -totalizar-
+        
+        totalizar << (arr[i][-7..-1].to_f)#de cada producto recoge los 7 últimos caracteres (precio con iva)
+        
     end
     
-
-    puts "\n El precio Total de esos #{numero} productos es  #{totalizar.reduce:+}" 
-    #suma todos los elementos (precios)almacenados en el arreglo -totalizar-
+    imprime(arr)#llamada al método -imprime- se le pasa el arreglo -arr-, donde cada elemento es un producto
+    puts "\n El precio Total de esos #{numero} productos es  #{totalizar.reduce:+}"
+    #(totalizar.reduce:+)suma todos los elementos (precios)almacenados en el arreglo -totalizar-    
+    
 end
-#-----------------------------------------Método total---------------------------------------------------
-total(cantidad) # llamada a método total
+total(cantidad)#llamada al método -total- el parámetro cantidad es el número que ingreso el susuario
 
-#-----------------------------------------Fin métodos---------------------------------------------------
+
+
 
 
 

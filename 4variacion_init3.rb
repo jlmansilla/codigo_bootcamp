@@ -17,7 +17,7 @@ puts "-" * 10
 $empresa = "3BS"
 
 def lineas
-    content = File.read("DATOS.txt") # lee el archivo
+    content = File.read("identificador_3b/DATOS.txt") # lee el archivo
     lines = content.split("\n") # divide el contenido en líneas
     
     return lines
@@ -26,7 +26,7 @@ end
 
 
 def catalogo(archivo)
-    arreglo = []
+    arreglo =""
     
     archivo.each do |i|
         indice="#{i[0..1]}"
@@ -35,12 +35,12 @@ def catalogo(archivo)
         precio="#{i[11..15]}"
         con_iva = iva(precio)
         categoria="#{i[16..18]}"
-        subcategoria="#{i[19..24]}"
-        clave = indice + categoria[0..2] + $empresa
+        subcategoria="#{'%6s' % i[19..24]}"
+        clave = indice + categoria[0..2] + "3BS"
             
         
 
-        arreglo << [clave, nombre, unidad, categoria, subcategoria, '%.2f' % con_iva]
+        arreglo += "#{clave}#{nombre}#{unidad}#{categoria}#{subcategoria}#{'%08.2f' % con_iva}\n"
         
                
         
@@ -48,6 +48,7 @@ def catalogo(archivo)
         
         
     end
+    
     return arreglo
 end
 
@@ -60,16 +61,34 @@ def iva(valor)
 end
 
 def imprime
-    arr = catalogo(lineas)
     
-    (0..arr.length-1).each do |i|
+    arr = catalogo(lineas).split("\n")
+   
+    arr.each do |i|
+        clave="#{i[0..7]}"
+        nombre="#{i[8..14]}"
+        unidad="#{i[15..16]}"
+        categoria="#{i[17..19]}"
+        subcategoria="#{i[20..25]}"
+        con_iva="#{i[26..33]}"
         
-     puts " Los datos del producto son:\nClave: #{arr[i][0]} Nombre: #{arr[i][1]} Unidad: #{arr[i][2]} Categoria: #{arr[i][3]} Subcategoria: #{arr[i][4]} \nPrecio Final: #{arr[i][5]}\n\n"
+            
+        puts " Los datos del producto son:\nClave: #{clave} Nombre: #{nombre} Unidad: #{unidad} Categoria: #{categoria} Subcategoria: #{subcategoria} \nPrecio Final: #{con_iva}\n\n"
+
+       
+               
+        
+        
+       
+        
     end
+       
+     return arr
+    
     
 end
 
-imprime
+
 
 puts "\n ++++++++++++++ Sumas de precios finales +++++++++++++++++"
 puts "Ingrese la cantidad de priductos a totalizar: "
@@ -78,14 +97,13 @@ cantidad = gets.chomp.to_i
 
 def total(numero)
     
-    arreg = catalogo(lineas) 
-    arr= arreg.slice(0,numero)
+    arr= imprime.slice(0,numero)
     totalizar = []
     
     for i in (0..numero-1) do
-    
-        totalizar << (arr[i][5].to_f)
-        puts "\n #{arr[i][5]}"
+        
+        totalizar << (arr[i][-7..-1].to_f)
+        
     end
     
 
