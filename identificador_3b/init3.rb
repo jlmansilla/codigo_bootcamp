@@ -33,7 +33,7 @@ puts "-" * 10
 =end
 ##-------------------------------------Método lineas-----------------------------------------------
 def lineas
-    lines = File.readlines("identificador_3b/DATOS.txt") # lee las líneas del archivo
+    lines = File.readlines("DATOS.txt") # lee las líneas del archivo
         
     return lines
 end
