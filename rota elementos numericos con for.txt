@@ -1,0 +1,4 @@
+ for i in arreglo do
+ print arreglo[-i]
+ end
+54321=> [1, 2, 3, 4, 5]
