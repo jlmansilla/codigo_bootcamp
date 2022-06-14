@@ -33,8 +33,9 @@ puts "-" * 10
 =end
 ##-------------------------------------Método lineas-----------------------------------------------
 def lineas
-    lines = File.readlines("identificador_3b/DATOS.txt") # lee las líneas del archivo
-        
+    content = File.read("DATOS.txt") # lee el archivo
+    lines = content.split("\n") # divide el contenido en líneas
+    
     return lines
 end
 ##-----------------------------------------Fin método lineas-------------------------------------------
@@ -138,11 +139,11 @@ def total(numero)
     end
     
     imprime(arr)#llamada al método -imprime- se le pasa el arreglo -arr-, donde cada elemento es un producto
-    resultado= "\n El precio Total de esos #{numero} productos es  #{totalizar.reduce:+}"
+    puts "\n El precio Total de esos #{numero} productos es  #{totalizar.reduce:+}"
     #(totalizar.reduce:+)suma todos los elementos (precios)almacenados en el arreglo -totalizar-    
-    return resultado
+    
 end
-puts total(cantidad)#llamada al método -total- el parámetro cantidad es el número que ingreso el susuario
+total(cantidad)#llamada al método -total- el parámetro cantidad es el número que ingreso el susuario
 
 
 
