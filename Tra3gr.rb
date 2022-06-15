@@ -1,3 +1,4 @@
+#-------------------Método Consulta de producto---------------------------
 def consulta?(num)
     content = File.read("DATOS.txt") # lee el archivo
     lines = content.split("\n") # divide el contenido en líneas
@@ -29,3 +30,4 @@ end  #fin del método
 print "ingrese el código de producto:"
 num = gets.chomp.to_i
 consulta?(num)
+#-------------------Fin método consulta de producto---------------------------
