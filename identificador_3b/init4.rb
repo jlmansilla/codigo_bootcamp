@@ -107,6 +107,11 @@ def buscar_precio()
     end
 end
 
+def leer()
+    content = File.read("catalogo_productos.txt")
+    $lines = content.split("\n")
+end
+
 begin
     print "|-----------------------------------------------------|\n"
     print "     Bienvenido al Identificador de precios 3b's       \n"
@@ -138,7 +143,7 @@ begin
     when 4 then ordenar()
     when 5 then buscar()
     when 6 then buscar_precio()
-    when 7 then #leer()
+    when 7 then leer()
     when 8 then #agregar()
     else
         return 0
