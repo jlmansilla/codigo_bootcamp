@@ -68,18 +68,17 @@ when
     "Error: esta opción no es válida"9  
 .chmp.tto_i
 =end
-
-ts #---Qué acció
-end
-n quieres realizar: -
-ge--------------------------------Fin Menúo--------------------------------------#menú
 pts
+gets #---Qué acción quieres realizar: -
+#--------------------------------Fin Menúo--------------------------------------#menú
+
 ##-------------------------------------Método catalogo-----------------------------------------------
+=begin
 def catalogo(archivo)
-    arreglo = [] #define un areglo vacio
-    
-    archivo.each do |i| #por cada elemento (linea)en el archivo .txt captura los caracteres requeridos
-        indice="#{i[0..1]}"
+    producto = [] #define un areglo vacio
+    arreglo = archivo.split("\n")
+    arreglo.each do |i| #por cada elemento (linea)en el archivo .txt captura los caracteres requeridos
+        producto=arreglo.split(",")
         nombre="#{i[2..8]}"
         unidad="#{i[9..10]}"
         precio="#{i[11..15]}"
@@ -199,6 +198,7 @@ end
 
 
 #-----------------------------------------Fin métodos---------------------------------------------------
+=end
 puts "Qué acción quieres realizar:
 1. Generar un arreglo de un producto
 2. Generar un arreglo de precios
