@@ -1,130 +1,151 @@
-=begin
-    Encabezado
-    Esta sección genera un encabezado para la impresión del catálogo de productos
+def productos()
+    puts "\n¿Cuántos productos desea ingresar al arreglo? :"
+    cantidad = gets.chomp.to_i
+    array = []
+
+    for i in (0..cantidad-1) do
+        print "----------------- Producto #{i + 1}-----------------\n\n"
+        print "* Clave          :" 
+        clave = gets.chomp.to_i
+        print "* Nombre         :" 
+        nombre= gets.chomp
+        print "* Unidad         :" 
+        unidad= gets.chomp
+        print "* Precio         :" 
+        precio= gets.chomp.to_i
+        print "* Categoria      :" 
+        categoria= gets.chomp
+        print "* SubCategoria   :" 
+        subcategoria= gets.chomp
+        
+        
+        array[i] = clave,nombre,unidad,precio,categoria,subcategoria
+        
+    end
     
-=end
-#-----------------------------------------Encabezado--------------------------------------------
-puts "-" * 60
-print "|"
-print " " * 8
-print "Bienvenido al identificador de precios 3b's"
-print " " * 7
-print "|"
-puts ""
-puts "-" *60
-puts
-puts
-print "-" * 10
-print "Catálogo de productos"
-puts "-" * 10
-#-----------------------------------------Fin Encabezado-------------------------------------------
-=begin---------while loop, para que el usuario elija nuevamente---------------
-intenta_denuevo="si"
-while intenta_denuevo=="si"
-    Aqui va tooooodo nuestro código
-    puts "Desea intentar nuevamente: "
-    intenta_denuevo=gets.chomp
+    print "Usted ha creado el siguiente arreglo de #{cantidad} productos #{array}"
+    
+    return array
 end
 
+def precios()
+    puts "\n¿Cuántos precios desea ingresar al arreglo? :"
+    cantidad = gets.chomp.to_i
+    array = []
 
-
-=end
-
-=begin-------------------------------------Menú-------------------------------------------
-puts "Qué acción desea realizar:\n
-1. Generar un arreglo de un producto\n
-2. Generar un arreglo de precios\n
-3. Generar un arreglo de precios con impuestos\n
-4. Ordenar un arreglo\n
-5. Buscar un producto en un arreglo\n
-6. Imprimir un arreglo ordenado.\n
-7.Leer archivos txt\n
-8.Agregar un registro de txt\n
-
-puts "Qué acción desea realizar:"
-eleccion=gets.chomp.to_i
-
-case eleccion
-when 1
+    for i in (0..cantidad-1) do
+        print "----------------- Precio #{i + 1}-----------------\n\n"
+        
+        print "* Precio         :" 
+        precio= gets.chomp.to_i
+        
+        
+        
+        array[i] = precio
+        
+    end
     
-when 2
-
-when 3
-    
-when 4
-    
-when 5
-
-when 6
-
-when 7
-
-when 8
-
-when 9
-
-else 
-    "Error: esta opción no es válida, intenta nuevamente."  
+    print "Usted ha creado el siguiente arreglo de #{cantidad} precios #{array}\n"
+    return array
 end
-=end
-#---Qué acción quieres realizar: -
-#--------------------------------Fin Menúo--------------------------------------#menú
 
-##-------------------------------------Método catalogo-----------------------------------------------
-=begin
-def crea_arreeglo(archivo)
+def impuestos()
+    precios_finales = []
+    precios().each_with_index do |item, i|
+        puts "El precio con IVA del producto #{i+1} es #{item + item*0.19}"
+        precios_finales << item + item*0.19
+    end
+    print "Su arreglo de precios finales es #{precios_finales}\n"
+    return precios_finales
+end    
+
+def ordenar()
+     
+    puts "Su arreglo ordenado sería: #{impuestos().sort}"
+end
+
+def buscar()
+    print "ingrese el código de producto a buscar: "
+    num = gets.chomp.to_i
+    sw = 0
+    productos().each do |item|
+        if item.first == num
+            print "\nUsted ha buscado el siguente producto#{item}\n"
+            sw= 1
+        end
+    end
+    if sw == 0
+        print "\nEl producto que buscó no fue encontrado"
+    end
+end
+
+def buscar_precio()
+    print "Selecciones una opción\n"
+    print "1.- Precio mínimo\n"
+    print "2.- Precios máximo:\n"
+    print "3.- Precios específico:\n"
+    print "ingrese el su opción: "
+    opcion = gets.chomp.to_i
+    sw = 0
+    case opcion
+        when 1 then puts "El precio menor es: #{precios().min}"
+        when 2 then puts "El precio mayor es: #{precios().max}"
+        when 3 then 
+            print "ingrese el precio de producto a buscar: "
+            num = gets.chomp.to_i
+            precios().each do |item|
+                if item == num
+                    print "\nUsted ha buscado y encontrado el siguente precio #{item}\n"
+                    sw= 1
+                end
+        
+            end
+        
+            if sw == 0
+                print "\nEl precio que buscó no fue encontrado\n"
+            end
+    end
+end
+
+begin
+    print "|-----------------------------------------------------|\n"
+    print "     Bienvenido al Identificador de precios 3b's       \n"
+    print "|-----------------------------------------------------|\n"
+    print "Presione una tecla para continuar...\r"
+    gets
+    print "-----------------Catalogos de Producto-----------------\n\n"
+
+    print "Selecciones una opción\n"
+    print "1.- Generar un arreglo de un Producto:\n"
+    print "2.- Generar un arreglo de Precios:\n"
+    print "3.- Generar un arreglo de Precios con Impuestos:\n"
+    print "4.- Ordenar un arreglo:\n"
+    print "5.- Buscar un Producto en un arreglo:\n"
+    print "6.- Busca un precio específico:\n"
+    print "7.- Leer archivo de txt:\n"
+    print "8.- Agregar registro a Archivo txt:\n"
+    print "0.- Para salir del programa:\n"
+    print "Qué acción quieres realizar: "
+
+
+
+    opcion = gets.chomp.to_i
+
+    case opcion
+    when 1 then productos()
+    when 2 then precios()
+    when 3 then impuestos()
+    when 4 then ordenar()
+    when 5 then buscar()
+    when 6 then buscar_precio()
+    when 7 then #leer()
+    when 8 then #agregar()
+    else
+        return 0
+    end
+
+end while (opcion!=0)
     
-end
-##-------------------------------------Fin método catalogo-----------------------------------------------
-
-##-------------------------------------Método iva-----------------------------------------------
-
-def iva(valor)
-    precioFinal=(valor.to_f  + valor.to_f * 0.19)
-    return precioFinal
-    
-end
-##-------------------------------------Fin método iva-----------------------------------------------
-#-----------------------------------------Método total---------------------------------------------------
-
-def arreglo_precios (arreglo)
-       
-    
-end
-#-----------------------------------------Método total---------------------------------------------------
-
-#-----------------------------------------Método total---------------------------------------------------
-
-def precios_con_iva (arreglo)
-end
-#-----------------------------------------Método total---------------------------------------------------
-#-------------------Método Consulta de producto---------------------------
-def consulta?(num)
-    
-end  #fin del método
-
-print "ingrese el código de producto:"
-num = gets.chomp.to_i
-consulta?(num)
-#-------------------Fin método consulta de producto---------------------------
-##-------------------------------------Método imprime-----------------------------------------------
-
-def imprime(arreglo)
-       
-  
-end
-##-------------------------------------Fin método imprime--------------------------------------------------------
 
 
-#-----------------------------------------Fin métodos---------------------------------------------------
-=end
-puts "Qué acción quieres realizar:
-1. Generar un arreglo de un producto
-2. Generar un arreglo de precios
-3. Generar un arreglo de precios con impuestos
-4. Ordenar un arreglo
-5. Buscar un producto en un arreglo
-6. Imprimir una arreglo ordenado
-7. Leer archivos de txt
-8. Agregar un registro de txt
-9. Imprimir un arreglo ordenado
+
