@@ -1,3 +1,6 @@
+#Grupal M6AE4 | Marilyn Aguilar, Juan Mansilla y Marcos Sobarzo
+
+#Opción 1: "Generar un arreglo de un Producto"
 def productos()
     puts "\n¿Cuántos productos desea ingresar al arreglo? :"
     cantidad = gets.chomp.to_i
@@ -28,6 +31,7 @@ def productos()
     return array
 end
 
+#Opción 2: "Generar un arreglo de Precios"
 def precios()
     puts "\n¿Cuántos precios desea ingresar al arreglo? :"
     cantidad = gets.chomp.to_i
@@ -49,6 +53,7 @@ def precios()
     return array
 end
 
+#Opción 3: "Generar un arreglo de Precios con Impuestos"
 def impuestos()
     precios_finales = []
     precios().each_with_index do |item, i|
@@ -59,11 +64,13 @@ def impuestos()
     return precios_finales
 end    
 
+#Opción 4: "Ordenar un arreglo"
 def ordenar()
      
     puts "Su arreglo ordenado sería: #{impuestos().sort}"
 end
 
+#Opción 5: "Buscar un Producto en un arreglo"
 def buscar()
     print "ingrese el código de producto a buscar: "
     num = gets.chomp.to_i
@@ -79,6 +86,7 @@ def buscar()
     end
 end
 
+#Opción 6: "Busca un precio específico"
 def buscar_precio()
     print "Selecciones una opción\n"
     print "1.- Precio mínimo\n"
@@ -107,6 +115,7 @@ def buscar_precio()
     end
 end
 
+#Opción 7: "Leer archivo de txt"
 def leer()
     content = File.read("catalogo_productos.txt")
     lines = content.split("\n")
@@ -115,12 +124,14 @@ def leer()
     return lines
 end
 
+#Opción 8: "Agregar registro a Archivo txt"
 def agregar()
     puts "\nIngrese la información que desea agregar (ejemplo: clave, nombre, unidad, precio, promoción, categoría, subcategoría)"
     nuevo_producto=gets
     File.write("catalogo_productos.txt", nuevo_producto, mode:"a")
 end
 
+#Menú
 begin
     print "|-----------------------------------------------------|\n"
     print "     Bienvenido al Identificador de precios 3b's       \n"

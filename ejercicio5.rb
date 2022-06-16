@@ -4,7 +4,7 @@ puts "ingrese un número decimal o romano del 1 al 10: "
 numero = gets.chomp
 if numero.to_i != numero.to_s  && romanos.has_key?(numero.upcase)
     puts "Su número romano en decimal sería #{romanos[numero.upcase]}"
-elsif numero.to_i > 0 && numero.to_i <= 11
+elsif numero.to_i > 0 && numero.to_i < 11
     decimal = romanos.invert
     puts "Su número decimal en numeración romana sería #{decimal[numero.to_i]}"
 else
