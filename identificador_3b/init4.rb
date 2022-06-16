@@ -1,211 +1,176 @@
-=begin
-    Encabezado
-    Esta sección genera un encabezado para la impresión del catálogo de productos
-    
-=end
-#-----------------------------------------Encabezado--------------------------------------------
-puts "-" * 60
-print "|"
-print " " * 8
-print "Bienvenido al identificador de precios 3b's"
-print " " * 7
-print "|"
-puts ""
-puts "-" *60
-puts
-puts
-print "-" * 10
-print "Catálogo de productos"
-puts "-" * 10
-#-----------------------------------------Fin Encabezado-------------------------------------------
-#----
-=begin-------------------------------------Menú-------------------------------------------
-puts "Qué acción desea realizar:\n
-1. Generar un arreglo de un producto
-2. Generar un arreglo de precios
-3. Generar un arreglo de precios con impuestos
-4. Ordenar un arreglo
-5. Buscar un producto en un arreglo
-6. Imprimir un arreglo ordenado.\n
- 7.Leer archivos txt\n
- 8.Agregar un registro de txt\n
- 9.Imprimir un arreglo ordenado.\nrimir una arreglo ordenado
-7. Leer archivos de txt
-8. Agregar un registro de txt
-9. Imprimir un arreglo ordenado"producto en un arreglo\n
- 6.Imp"
-elecci
+#Grupal M6AE4 | Marilyn Aguilar, Juan Mansilla y Marcos Sobarzo
 
-pcasu
-ts ""e eleccion
-   
+#Opción 1: "Generar un arreglo de un Producto"
+def productos()
+    puts "\n¿Cuántos productos desea ingresar al arreglo? :"
+    cantidad = gets.chomp.to_i
+    array = []
 
-
-
-    pu
-ts ""when 1
-    #
-
-
-
-    pu
-ts ""when 2
-    puts ""
-when 3
-    puts "puts ""
-"
-endwhen 4
-    puts ""
-when 5
-    puts ""
-else 
-
-    puts ""do    Ingresa udon valo r váli
-when 6
-when 7
-when 8
-when 
-    "Error: esta opción no es válida"9  
-.chmp.tto_i
-=end
-pts
-gets #---Qué acción quieres realizar: -
-#--------------------------------Fin Menúo--------------------------------------#menú
-
-##-------------------------------------Método catalogo-----------------------------------------------
-=begin
-def catalogo(archivo)
-    producto = [] #define un areglo vacio
-    arreglo = archivo.split("\n")
-    arreglo.each do |i| #por cada elemento (linea)en el archivo .txt captura los caracteres requeridos
-        producto=arreglo.split(",")
-        nombre="#{i[2..8]}"
-        unidad="#{i[9..10]}"
-        precio="#{i[11..15]}"
-        con_iva = iva(precio) #llama al método -iva- para agregar 19% al precio
-        categoria="#{i[16..18]}"
-        subcategoria="#{i[19..24]}"
-        clave = indice + categoria[0..2] + "3BS" # genera la nueva clave del producto           
+    for i in (0..cantidad-1) do
+        print "----------------- Producto #{i + 1}-----------------\n\n"
+        print "* Clave          :" 
+        clave = gets.chomp.to_i
+        print "* Nombre         :" 
+        nombre= gets.chomp
+        print "* Unidad         :" 
+        unidad= gets.chomp
+        print "* Precio         :" 
+        precio= gets.chomp.to_i
+        print "* Categoria      :" 
+        categoria= gets.chomp
+        print "* SubCategoria   :" 
+        subcategoria= gets.chomp
         
-        arreglo << [clave, nombre, unidad, categoria, subcategoria, '%.2f' % con_iva]     
-        #en cada iteración agrega un arreglo nuevo a la variable -arreglo- con la 
-        #información de cada producto
-    end
-    return arreglo #retorna un arreglo con todos los productos en el nuevo formato
-end
-##-------------------------------------Fin método catalogo-----------------------------------------------
-
-##-------------------------------------Método iva-----------------------------------------------
-
-def iva(valor)
-    precioFinal=(valor.to_f  + valor.to_f * 0.19)
-    return precioFinal
-    
-end
-##-------------------------------------Fin método iva-----------------------------------------------
-#-----------------------------------------Método total---------------------------------------------------
-
-def precios_con_iva (arreglo)
-       
-    arr= catalogo(lineas).slice(0,numero) #guarda en la variable arr la cantidad de productos según
-    #lo indicado por el usuario -catalogo(lineas)- es el arreglo, slice toma una cantidad de elementos
-    #del arreglo desde 0 hasta la cantidad indicada por el usuario
-    totalizar = []#crea un arreglo para almacenar los valores con iva
-    
-    for i in (0..numero-1) do #ciclo que imprime los nombres de los productos y sus precios
-    
-        totalizar << (arr[i][5].to_f) #agrega un precio con iva al arreglo
-        puts "\n #{arr[i][1]}      $#{arr[i][5]}" #imprime el nombre y precio del producto
-    end
-    
-
-    puts "\n El precio Total de esos #{numero} productos es  #{totalizar.reduce:+}" 
-    #suma todos los elementos (precios)almacenados en el arreglo -totalizar-
-end
-#-----------------------------------------Método total---------------------------------------------------
-total(cantidad) # llamada a método total
-#-----------------------------------------Método total---------------------------------------------------
-
-def precios (arreglo)
-       
-    arr= catalogo(lineas).slice(0,numero) #guarda en la variable arr la cantidad de productos según
-    #lo indicado por el usuario -catalogo(lineas)- es el arreglo, slice toma una cantidad de elementos
-    #del arreglo desde 0 hasta la cantidad indicada por el usuario
-    totalizar = []#crea un arreglo para almacenar los valores con iva
-    
-    for i in (0..numero-1) do #ciclo que imprime los nombres de los productos y sus precios
-    
-        totalizar << (arr[i][5].to_f) #agrega un precio con iva al arreglo
-        puts "\n #{arr[i][1]}      $#{arr[i][5]}" #imprime el nombre y precio del producto
-    end
-    
-
-    puts "\n El precio Total de esos #{numero} productos es  #{totalizar.reduce:+}" 
-    #suma todos los elementos (precios)almacenados en el arreglo -totalizar-
-end
-#-----------------------------------------Método total---------------------------------------------------
-#-------------------Método Consulta de producto---------------------------
-def consulta?(num)
-    content = File.read("DATOS.txt") # lee el archivo
-    lines = content.split("\n") # divide el contenido en líneas
-    ok=0
-    # recorre las líneas y las imprime
-   lines.each do |line|
-       as=line[0..1].to_i
         
-       if(as==num)
-        pro = line[2..8].to_s
-        uni = line[9..10].to_s
-        pre = line[11..15].to_i
-        cat = line[16..18].to_s
-        sca = line[19..24].to_s
-        ok = 1
-        puts "Código: #{num}"
-        puts "Producto: #{pro}"
-        puts "Unidad: #{uni}"
-        puts "Categoría: #{cat}"
-        puts "Precio sin IVA: #{pre}"
-        puts "Precio con IVA: #{pre+pre*0.19}"
-       end
-    end #fin del recorrido del archivo
-  if (ok==0)
-    puts "código no encontrado"
-  end
-end  #fin del método
-
-print "ingrese el código de producto:"
-num = gets.chomp.to_i
-consulta?(num)
-#-------------------Fin método consulta de producto---------------------------
-##-------------------------------------Método imprime-----------------------------------------------
-
-def imprime(arreglo)
-       
-    arreglo.each do |i| #por cada elemento del arreglo imprime los 6 atributos del producto
-        clave="#{i[0..7]}"
-        nombre="#{i[8..14]}"
-        unidad="#{i[15..16]}"
-        categoria="#{i[17..19]}"
-        subcategoria="#{i[20..25]}"
-        con_iva="#{i[26..33]}"
-                    
-        puts " Los datos del producto son:\nClave: #{clave} Nombre: #{nombre} Unidad: #{unidad} Categoria: #{categoria} Subcategoria: #{subcategoria} \nPrecio Final: #{con_iva}\n\n"
-           
+        array[i] = clave,nombre,unidad,precio,categoria,subcategoria
+        
     end
-       
+    
+    print "Usted ha creado el siguiente arreglo de #{cantidad} productos #{array}"
+    
+    return array
 end
-##-------------------------------------Fin método imprime--------------------------------------------------------
+
+#Opción 2: "Generar un arreglo de Precios"
+def precios()
+    puts "\n¿Cuántos precios desea ingresar al arreglo? :"
+    cantidad = gets.chomp.to_i
+    array = []
+
+    for i in (0..cantidad-1) do
+        print "----------------- Precio #{i + 1}-----------------\n\n"
+        
+        print "* Precio         :" 
+        precio= gets.chomp.to_i
+        
+        
+        
+        array[i] = precio
+        
+    end
+    
+    print "Usted ha creado el siguiente arreglo de #{cantidad} precios #{array}\n"
+    return array
+end
+
+#Opción 3: "Generar un arreglo de Precios con Impuestos"
+def impuestos()
+    precios_finales = []
+    precios().each_with_index do |item, i|
+        puts "El precio con IVA del producto #{i+1} es #{item + item*0.19}"
+        precios_finales << item + item*0.19
+    end
+    print "Su arreglo de precios finales es #{precios_finales}\n"
+    return precios_finales
+end    
+
+#Opción 4: "Ordenar un arreglo"
+def ordenar()
+     
+    puts "Su arreglo ordenado sería: #{impuestos().sort}"
+end
+
+#Opción 5: "Buscar un Producto en un arreglo"
+def buscar()
+    print "ingrese el código de producto a buscar: "
+    num = gets.chomp.to_i
+    sw = 0
+    productos().each do |item|
+        if item.first == num
+            print "\nUsted ha buscado el siguente producto#{item}\n"
+            sw= 1
+        end
+    end
+    if sw == 0
+        print "\nEl producto que buscó no fue encontrado"
+    end
+end
+
+#Opción 6: "Busca un precio específico"
+def buscar_precio()
+    print "Selecciones una opción\n"
+    print "1.- Precio mínimo\n"
+    print "2.- Precios máximo:\n"
+    print "3.- Precios específico:\n"
+    print "ingrese el su opción: "
+    opcion = gets.chomp.to_i
+    sw = 0
+    case opcion
+        when 1 then puts "El precio menor es: #{precios().min}"
+        when 2 then puts "El precio mayor es: #{precios().max}"
+        when 3 then 
+            print "ingrese el precio de producto a buscar: "
+            num = gets.chomp.to_i
+            precios().each do |item|
+                if item == num
+                    print "\nUsted ha buscado y encontrado el siguente precio #{item}\n"
+                    sw= 1
+                end
+        
+            end
+        
+            if sw == 0
+                print "\nEl precio que buscó no fue encontrado\n"
+            end
+    end
+end
+
+#Opción 7: "Leer archivo de txt"
+def leer()
+    content = File.read("catalogo_productos.txt")
+    lines = content.split("\n")
+    print lines
+    puts ""
+    return lines
+end
+
+#Opción 8: "Agregar registro a Archivo txt"
+def agregar()
+    puts "\nIngrese la información que desea agregar (ejemplo: clave, nombre, unidad, precio, promoción, categoría, subcategoría)"
+    nuevo_producto=gets
+    File.write("catalogo_productos.txt", nuevo_producto, mode:"a")
+end
+
+#Menú
+begin
+    print "|-----------------------------------------------------|\n"
+    print "     Bienvenido al Identificador de precios 3b's       \n"
+    print "|-----------------------------------------------------|\n"
+    print "Presione una tecla para continuar...\r"
+    gets
+    print "-----------------Catalogos de Producto-----------------\n\n"
+
+    print "Selecciones una opción\n"
+    print "1.- Generar un arreglo de un Producto:\n"
+    print "2.- Generar un arreglo de Precios:\n"
+    print "3.- Generar un arreglo de Precios con Impuestos:\n"
+    print "4.- Ordenar un arreglo:\n"
+    print "5.- Buscar un Producto en un arreglo:\n"
+    print "6.- Busca un precio específico:\n"
+    print "7.- Leer archivo de txt:\n"
+    print "8.- Agregar registro a Archivo txt:\n"
+    print "0.- Para salir del programa:\n"
+    print "Qué acción quieres realizar: "
 
 
-#-----------------------------------------Fin métodos---------------------------------------------------
-=end
-puts "Qué acción quieres realizar:
-1. Generar un arreglo de un producto
-2. Generar un arreglo de precios
-3. Generar un arreglo de precios con impuestos
-4. Ordenar un arreglo
-5. Buscar un producto en un arreglo
-6. Imprimir una arreglo ordenado
-7. Leer archivos de txt
-8. Agregar un registro de txt
-9. Imprimir un arreglo ordenado
+
+    opcion = gets.chomp.to_i
+
+    case opcion
+    when 1 then productos()
+    when 2 then precios()
+    when 3 then impuestos()
+    when 4 then ordenar()
+    when 5 then buscar()
+    when 6 then buscar_precio()
+    when 7 then leer()
+    when 8 then agregar()
+    else
+        return 0
+    end
+
+end while (opcion!=0)
+    
+
+
+

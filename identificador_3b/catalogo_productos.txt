@@ -9,3 +9,4 @@
 010,Queso Cabrales,kg,22500,22000,Abarrote,Alimentos
 011,Queso Manchego La Pastora,kg,35200,34500,Abarrote,Alimentos
 012,Algas Konbu,rollo,17800,17800,Abarrote,Alimentos
+013,suchi,rollo,17800,17800,Abarrote,Alimentos
