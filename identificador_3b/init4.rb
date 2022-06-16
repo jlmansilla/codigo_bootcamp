@@ -109,7 +109,16 @@ end
 
 def leer()
     content = File.read("catalogo_productos.txt")
-    $lines = content.split("\n")
+    lines = content.split("\n")
+    print lines
+    puts ""
+    return lines
+end
+
+def agregar()
+    puts "\nIngrese la información que desea agregar (ejemplo: clave, nombre, unidad, precio, promoción, categoría, subcategoría)"
+    nuevo_producto=gets
+    File.write("catalogo_productos.txt", nuevo_producto, mode:"a")
 end
 
 begin
@@ -144,7 +153,7 @@ begin
     when 5 then buscar()
     when 6 then buscar_precio()
     when 7 then leer()
-    when 8 then #agregar()
+    when 8 then agregar()
     else
         return 0
     end
