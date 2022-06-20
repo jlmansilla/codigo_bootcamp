@@ -1,15 +1,17 @@
-require "./clases.rb"
-begin
+require "./clases.rb" # Importamos las clases
+begin # Loop del menú
     
 puts "-------------------Bienvenido a Sintonizador AM/FM-----------------------"
 puts "Ingrese la opción que desea:"
 puts "1. Cambiar frecuencia"
 puts "2. Cambiar volumen"
 puts "3. Estatus de la radio"
-opcion = gets.chomp.to_i
+puts "0. Salir"
 
-case opcion
-when 1
+opcion = gets.chomp.to_i# Capturamos la opción de menú
+
+case opcion # Según opción elegida realiza las tareas
+when 1 # Cambiar frecuencia
     puts "Ingrese la frecuencia que desea: AM o FM"
     puts "1. AM"
     puts "2. FM"
@@ -20,18 +22,26 @@ when 1
         frecuencia = "FM"
     end
 
-when  2
+when  2 then # Cambiar volumen
     puts "Ingrese el nivel de volumen desea: (1 a 30 db)"
     volumen = gets.chomp.to_i
+    if volumen > 30 
+        volumen = 1
+        puts "volumen  no valido"
+    end
 
-    
+when 3 then # mostrar estatus
+    radio = Radio.new(volumen, frecuencia)# Instanciamos la clase Radio
+    puts puts "El radio tiene un volumen de #{radio.volumen} y está en la frecuencia #{radio.frecuencia}"
 else
-    return 0
+   if opcion != 0 then
+     puts "opcion no valida"
+     
+   end
 end
 
+end while opcion != 0
 
-end while opcion == 0
-Radio.new(volumen, frecuencia)
     
 
 

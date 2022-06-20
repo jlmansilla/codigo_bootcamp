@@ -1,26 +1,14 @@
 class Radio
-    attr_accessor :volumen, :frecuencia, :title
+    attr_accessor :volumen, :frecuencia, :title 
 
-    def initialize(vol, freq) 
-        @volumen= vol
-        @frecuencia= freq
-        puts "El radio tiene un volumen de #{@volumen} y está en la frecuencia #{@frecuencia}"
-    end
-
-    def volumen
+    def initialize(volumen, frecuencia) #constructor
+        @volumen= volumen || 1 # Si no se ingresa un valor, se asigna 1
+        @frecuencia= frecuencia || 'AM' # Si no se ingresa un valor, se asigna AM
+        @title= title || "Radio Zero"
         
     end
+
     
-    def frecuencia
-        
-    end
 
-    def estatus
-        puts "El radio tiene un volumen de #{@volumen} y está en la frecuencia #{@frecuencia}"
-    end
-
+    
 end
-
-#radio_zero= Radio.new
-#radio_zero.volumen = @volumen
-#puts radio_zero.volumen
