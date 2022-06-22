@@ -32,7 +32,7 @@ when  2 then # Cambiar volumen
 
 when 3 then # mostrar estatus
     miradio = Radio.new(volumen, frecuencia)# Instanciamos la clase Radio
-    puts puts "El radio tiene un volumen de #{miradio.volumen} y está en la frecuencia #{miradio.frecuencia}"
+    puts miradio.estatus
 else
    if opcion != 0 then
      puts "opcion no valida"
