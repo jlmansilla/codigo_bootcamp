@@ -1,0 +1,12 @@
+001,Té Dharamsala,caja,15700,15500,Abarrote,Alimentos
+003,Sirope de regaliz,litro,28600,28600,Abarrote,Repostería
+004,Especias Cajun del chef Anton,gramo,75000,70000,Abarrote,Alimentos
+005,Mermelada de grosellas de la abuela,kg,3000,3000,Abarrote,Repostería
+006,Peras secas orgánicas del tío Bob,unidad,2000,2000,Abarrote,Alimentos
+007,Salsa de arándanos Northwoods,bolsa,3800,3800,Abarrote,Alimentos
+008,Buey Mishi Kobe,kg,380000,380000,Abarrote,Alimentos
+009,Pez espada,unidad,500000,450000,Abarrote,Alimentos
+010,Queso Cabrales,kg,22500,22000,Abarrote,Alimentos
+011,Queso Manchego La Pastora,kg,35200,34500,Abarrote,Alimentos
+012,Algas Konbu,rollo,17800,17800,Abarrote,Alimentos
+013,suchi,rollo,17800,17800,Abarrote,Alimentos
