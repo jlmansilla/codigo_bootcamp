@@ -1,7 +1,7 @@
-Queso Mascarpone Fabiolio,pza,25032,Abarrotes
-Queso de cabrao,pza,75032,Abarrotes
-Cerveza Sasquatcho,pza,45032,Abarrotes
-Cerveza negra Steeleyeo,pza,85032,Abarrotes
-Escabeche de arenqueo,pza,95032,Abarrotes
-Salmón ahumado Gravado,pza,115032,Abarrotes
-Vino Côte de Blayeo,pza,125032,Abarrotes
+01,Queso Mascarpone Fabiolio,pza,25032,Abarrotes
+02,Queso de cabrao,pza,75032,Abarrotes
+03,Cerveza Sasquatcho,pza,45032,Abarrotes
+04,Cerveza negra Steeleyeo,pza,85032,Abarrotes
+05,Escabeche de arenqueo,pza,95032,Abarrotes
+06,Salmón ahumado Gravado,pza,115032,Abarrotes
+07,Vino Côte de Blayeo,pza,125032,Abarrotes
