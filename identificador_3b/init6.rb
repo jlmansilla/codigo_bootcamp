@@ -1,81 +1,53 @@
-require 'rest-client'
-require 'json'
+require 'rest-client' #se llama a la librería RestClient
+require 'json' #se llama a la librería JSON
 
+#---------------------------Método url------------------------------------------------
+=begin
+    En este método se arman las url de los indicadores que se quieren consultar.
+    Se llama a las librerías RestClient y JSON par acceder a los datos mas recientes desde la Api de mindicador.cl.
+    Se consulta la fecha más reciente del indicador y se transforma para armar la url de consulta
+    Se llama al método -cambio- y se le pasan los argumentos de la url y la fecha y el indicador
+=end
 
-def ultima_fecha_dolar
-    url ='https://mindicador.cl/api/dolar/'
-    response =RestClient.get url
-    result = JSON.parse(response)
-    serie = result["serie"]
-    fecha =serie[0]['fecha']
-    fecha1 = fecha[0..9]
-    año = fecha1[0..3]
-    mes= fecha1[5..6]
-    dia = fecha1[8..9]
-    fecha2 = dia + "-" + mes + "-" + año
-    return fecha2
-end
-
-def ultima_fecha_euro
-    url ='https://mindicador.cl/api/euro/'
-    response =RestClient.get url
-    result = JSON.parse(response)
-    serie = result["serie"]
-    fecha =serie[0]['fecha']
-    fecha1 = fecha[0..9]
-    año = fecha1[0..3]
-    mes= fecha1[5..6]
-    dia = fecha1[8..9]
-    fecha2 = dia + "-" + mes + "-" + año
-    return fecha2
-end
-
-def ultima_fecha_bitcoin
-    url ='https://mindicador.cl/api/bitcoin/'
-    response =RestClient.get url
-    result = JSON.parse(response)
-    serie = result["serie"]
-    fecha =serie[0]['fecha']
-    fecha1 = fecha[0..9]
-    año = fecha1[0..3]
-    mes= fecha1[5..6]
-    dia = fecha1[8..9]
-    fecha2 = dia + "-" + mes + "-" + año
-    return fecha2
-end
-
-def dolar(fecha)
-    url = 'https://mindicador.cl/api/dolar/' + fecha 
-    response =RestClient.get url
-    result = JSON.parse(response)
-    serie = result['serie']
-    valor =serie[0]['valor']
-    return valor.to_f
-end
-
-
-def euro(fecha)
-    url = 'https://mindicador.cl/api/euro/' + fecha 
-    response =RestClient.get url
-    result = JSON.parse(response)
-    serie = result['serie']
-    valor =serie[0]['valor']
-    #puts "El valor del euro es #{serie[0]['valor']} pesos" 
-end
-
-def bitcoin(fecha)
-    url = 'https://mindicador.cl/api/bitcoin/' + fecha 
-    response =RestClient.get url
-    result = JSON.parse(response)
-    serie = result['serie']
-    valor_dolares =serie[0]['valor']
-    valor_pesos = valor_dolares * dolar(ultima_fecha_dolar)
-    return valor_pesos
-end
+def url(indicador)
+    base_url = 'http://mindicador.cl/api/' #se utilizar la url de consulta api de mindicador.cl
+    url = base_url + indicador #se concatena con el indicador según la opción que elija el usuario
+    response =RestClient.get url #se llama al método RestClient para obtener la respuesta de la url
+    result = JSON.parse(response) #se convierte la respuesta en un hash
+    serie = result["serie"] #se elije la clave que contiene los valores que se quieren ocupar
+    fecha =serie[0]['fecha'] #se obtiene la fecha de la serie
+    fecha1 = fecha[0..9] #se rescatan los caracteres necesrios de la fecha
+    año = fecha1[0..3] #se rescatan los caracteres necesrios del año
+    mes= fecha1[5..6] #se rescatan los caracteres necesrios del mes
+    dia = fecha1[8..9] #se rescatan los caracteres necesrios del dia
+    fecha2 = dia + "-" + mes + "-" + año #se arma la fecha para la consulta
+    cambio(url, fecha2, indicador) #se llama al método -cambio- con los argumentos necesarios
     
+end
+#-------------------------------Fin método url--------------------------------------
 
+#-------------------------------Metodo cambio---------------------------------------
+=begin
+    En este método se consultan los valores de los indicadores.
+    Se llama a las librerías RestClient y JSON par acceder a los valores desde la Api de mindicador.cl.
+    Se arman las url de consulta -url1- con la fecha más reciente para la que haya datos
+    Si el indicador es -bitcoin- se realiza la transformación de dólares a pesos antes de entregar el valor
+=end
+def cambio(url, fecha, indicador)
+    url1 = url +"/" + fecha #se arma la url de consulta
+    response =RestClient.get url1 #se llama al método RestClient para obtener la respuesta de la url
+    result = JSON.parse(response) #se transfora la respuesta de la url en un hash
+    serie = result['serie'] #se elije la clave que contiene los valores que se quieren ocupar
+    valor =serie[0]['valor']#se rescata el valor del indicador
+    if indicador == "bitcoin" #si el indicador es bitcoin se realiza la transformación de dólares a pesos
+        valor = valor * url("dolar")[0]
+    end
+    return valor.to_f, fecha #se retorna el valor del indicador y la fecha
 
-#Menú
+end
+#--................................Fin método cambio--------------------------------
+
+#----------------------------------------Menú----------------------------------------
 begin
     print "|-----------------------------------------------------|\n"
     print "     Bienvenido al Identificador de precios 3b's       \n"
@@ -93,16 +65,15 @@ begin
     print "Qué acción quieres realizar: "
 
 
-
     opcion = gets.chomp.to_i
     
-    
-    
     case opcion
-    when 1 then puts "El valor del dolar es #{dolar(ultima_fecha_dolar).to_s} pesos"
-    when 2 then puts "El valor del euro es #{euro(ultima_fecha_euro).to_s} pesos"
-    when 3 then puts "El valor del bitcoin es #{bitcoin(ultima_fecha_bitcoin).to_s} pesos"
-    
+    when 1 then puts "Para la fecha: #{url("dolar")[1]} el valor del dolar es #{url("dolar")[0]} pesos"
+    when 2 then puts "Para la fecha: #{url("euro")[1]} el valor del euro es #{url("euro")[0]} pesos"
+    when 3 then puts "Para la fecha: #{url("bitcoin")[1]} el valor del bitcoin es #{url("bitcoin")[0]} pesos"
+    when 0 then 
+        puts "Ha salido del programa" 
+        return
     else
         puts "opción no valida" 
     end
