@@ -30,9 +30,10 @@ puts "-" * 10
 =end
     ##-------------------------------------Método lineas-----------------------------------------------
     def lineas
-        lines = File.readlines("catálogo_productos_hash.txt") # lee las líneas del archivo
-            
-        return lines
+        lines = File.read("catalogo _ producto _ hash.txt") # lee las líneas del archivo
+        prod = lines.split("\n") # separa las productos
+        item = prod[0]    
+        return item
     end
     ##-----------------------------------------Fin método lineas-------------------------------------------
 def hash
@@ -68,6 +69,25 @@ def producto(prod)
         puts "El producto no existe" #Si el producto no existe, se imprime un mensaje de error
     end
 end
+
+def leer(lin)
+        
+    
+    
+    claves = [:clave, :nombre, :unidad, :precios, :categoria]# Se crea un array con las claves que se van a buscar en el hash
+          
+        items = lin.split(",")
+        clave = items[0] + items[4][0..2].upcase + "3BS" # genera la nueva clave del producto
+        items.shift #elimina la clave anterior
+        items.unshift clave #agrega la nueva clave al array   
+        
+        h =Hash[claves.zip(items)] #se fusionan las claves con los valores del array
+        puts h # se imprime el resultado
+        
+end
+    
+
+
 begin
     puts "Ingrese la opción que desea:"
     puts "1. Consultar productos por clave"
@@ -86,35 +106,8 @@ begin
           
             producto(prod) #Se invoca el método producto y se le pasa el parametro "prod" con el código de producto ingresado por el usuario
         
-    when  2 then # Crear Hash desde archivo de texto
-        puts lineas() #Se invoca el método lineas
-         #   puts "------------Volumen------------(1 a 30 db)"
-         #   puts "Ingrese la opción que desea:"
-         #   puts "1. Subir volumen (+)"
-         #   puts "2. Bajar volumen (-)"
-         #   opcion = gets.chomp.to_i
-         #   if opcion == 1
-         #       puts "Ingrese los decibeles a subir"
-         #       vol = gets.chomp.to_i
-         #       miradio.SubirVolumen(vol)
-         #       
-         #   elsif opcion == 2
-         #       puts "Ingrese los decibeles a bajar"
-         #       vol = gets.chomp.to_i
-         #       miradio.BajarVolumen(vol)
-         #       
-         #   else
-         #       puts "Opción no válida"
-         #   end
-
-          #  when 3 then # mostrar estatus
-            
-           #     puts miradio.estatus()
-            #else
-            #if opcion != 0 then
-            #    puts "opcion no valida"
-            
-           # end
+    when  2 then leer(lineas)  # Crear Hash desde archivo de texto
+     
     
     else
         if opcion != 0 then
@@ -124,46 +117,7 @@ begin
     end
     
 
-=begin
-        Procedimientos
-        Esta sección contiene los métodos que resuelven el problema planteado
-        
-=end
 
-    #-----------------------------------------Métodos-------------------------------------------
-
-
-=begin
-        Método catalogo
-        Este método recibe el valor de retorno del método -lineas- en este caso un arreglo de 10 líneas
-        o 10 elementos, procesa  cada línea para cumplir con el enunciado del problema, además llama al
-        método -iva- para agragar el campo -con_iva-, por último guarda un String nuevo con 
-        el texto de los valores solicitados por el problema. Su valor de retorno es un String llamado
-        -arreglo-.
-=end
-    ##-------------------------------------Método catalogo-----------------------------------------------
-=begin
-    def catalogo(archivo)
-        arreglo ="" #inicializa un String
-        
-        archivo.each do |i| #por cada elemento (linea)en el archivo .txt captura los caracteres requeridos
-            indice="#{i[0..1]}"
-            nombre="#{i[2..8]}"
-            unidad="#{i[9..10]}"
-            precio="#{i[11..15]}"
-            con_iva = iva(precio)#llama al método -iva- para agregar 19% al precio
-            categoria="#{i[16..18]}"
-            subcategoria="#{'%6s' % i[19..24]}" #rellena los espacios en blanco si los hubiera
-            clave = indice + categoria[0..2] + "3BS" # genera la nueva clave del producto 
-            
-            arreglo += "#{clave}#{nombre}#{unidad}#{categoria}#{subcategoria}#{'%08.2f' % con_iva}\n"
-            #en cada iteración agrega al String una  nueva línea- con la información de cada producto
-        end
-        
-        return arreglo #retorna un String con todos los productos en el nuevo formato
-    end
-    ##-------------------------------------Fin método catalogo-----------------------------------------------
-=end
 
     
 end while opcion != 0
