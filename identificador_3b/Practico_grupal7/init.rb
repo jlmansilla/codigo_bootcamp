@@ -1,3 +1,4 @@
+require "../Class/clases.rb" # Importamos las clases
 #Menú
 begin
     print "|-----------------------------------------------------|\n"
@@ -17,44 +18,18 @@ begin
     opcion = gets.chomp.to_i
 
     case opcion
-    when 1 then marca()
-    when 2 then categoria()
-    when 3 then producto()
-    when 4 then clave_producto()
+    when 1 then mimarca = Marca.new()
+    when 2 then micategoria = Categoria.new()
+    when 3 then miproducto = Producto.new()
+    when 4 then 
+        puts "Ingrese la clave del producto que desea buscar:"
+        clave = gets.chomp
+        miproducto.buscar_producto()
+    when 0 then puts "Gracias por usar el programa"
     else
-        return 0
+        puts "Opción no válida"
     end
+    
 
 end while (opcion!=0)
-    =begin
-    Encabezado
-    Esta sección genera un encabezado para la impresión del catálogo de productos
     
-=end
-#-----------------------------------------Encabezado--------------------------------------------
-puts "-" * 60
-print "|"
-print " " * 8
-print "Bienvenido al identificador de precios 3b's"
-print " " * 7
-print "|"
-puts ""
-puts "-" *60
-puts
-puts
-print "-" * 10
-print "Catálogo de productos"
-puts "-" * 10
-#-----------------------------------------Fin Encabezado-------------------------------------------
-begin
-    puts "Que acción quieres realizar"
-    puts "1. Alta de marca"
-    puts "2. Alta de categoría"
-    puts "3. Alta de producto"
-    puts "4. Buscar producto por clave"
-
-    opcion = gets.chomp.to_i
-    
-
-    
-end while opcion != 0
